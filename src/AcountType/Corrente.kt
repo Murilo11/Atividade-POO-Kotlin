@@ -1,0 +1,4 @@
+package AcountType
+
+class Corrente {
+}
