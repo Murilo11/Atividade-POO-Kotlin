@@ -6,9 +6,9 @@ abstract class Conta(
     saldoInicial: Double = 0.0
 ) {
     var saldo: Double = saldoInicial
-        private set
+        protected set
 
-    private val historico = mutableListOf<String>()
+    protected val historico = mutableListOf<String>()
     private val linha = "=".repeat(36)
 
     fun depositar(valor: Double) {
@@ -34,6 +34,11 @@ abstract class Conta(
         println("Saque realizado com sucesso!")
 
     }
+    open fun aplicarTaxa() {}
+    open fun aplicarRendimento() {}
+
+    // Desafio extra: o design permite criar um novo tipo de conta no futuro apenas
+    // herdando de Conta e sobrescrevendo os métodos open, sem alterar as classes existentes.
 
     fun exibirDados() {
         println(linha)
